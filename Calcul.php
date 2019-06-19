@@ -6,7 +6,7 @@ if (isset($_POST['chiffre'])) {
     }
     $traitement = fopen('nombre.txt', 'w');
         if (fwrite($traitement, $nbr)) {
-            echo intval($nbr);
+            echo $nbr;
         }
     fclose($traitement);
 }

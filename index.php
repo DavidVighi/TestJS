@@ -19,7 +19,7 @@ fclose ($fp);
 <body>
 <h1>Hello, world!</h1>
 <div>
-    <h3>Nombre de clics : <p id="nombre"><?php echo $contenu_du_fichier; ?></p></h3>
+    <h3>Nombre de clics : <span id="nombre"><?php echo $contenu_du_fichier; ?></span></h3>
 </div>
 <button type="button" class="buttonCompteur btn btn-warning">+1</button>
 <button type="button" class="buttonCompteur btn btn-warning">+1 ?</button>
@@ -44,12 +44,14 @@ fclose ($fp);
             }
         });
     }
-
-    $(".buttonCompteur").click(function () {
-        somme = $("#nombre").text();
-        somme = somme +1;
-        calculGlobal(somme);
-    });
+    function Ajout(id, bouton ,nbr) {
+        $(bouton).click(function () {
+            var total = $(id).text();
+            var somme = parseInt(total) + nbr;
+            calculGlobal(somme);
+        });
+    }
+    Ajout("#nombre", ".buttonCompteur", 1 );
     $("#gerard").click(function () {
         calculGlobal('valeurnulle');
     });
